@@ -19,6 +19,8 @@ $ git fetch
 # Check out the master branch
 $ git checkout master 
 ```
+# Stability 
+I plan to update this code as much as possible. Coming extensions to the project may include implementation of different algorithms such as A*, Djikstra, and genetic algorithms. The maze could also be extended into three dimensions, as well as having a separate gui to display how each algorithm behaves. 
 
 # Contributing
 I love collaborating and receiving tips on how my code can improve. If you see anything that you would like to improve on this code, feel free to fork the repo and open a pull request. Please ensure the code passes the existing tests, and write tests to see if the changes are applicable. Please submit all pull requests on the main branch.
