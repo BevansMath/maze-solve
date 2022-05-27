@@ -7,17 +7,14 @@ The goal of this project is to solve any number of complex mazes in an optimum t
 # Installation
 Firstly, make sure you have python and git installed on your local machine. I did everything in VSCode, so make sure where you install the repository is under your current workspace path. Go to your workspace path and do the following.
 ```
-# Create and initialize an empty repository
-$ git init
+# Clone the repository into your local machine
+git clone https://github.com/BevansMath/maze-solve
 
-# Add a remote named origin for the repository at <repository>
-$ git remote add origin <repository>
+# Change directory into directory of repository
+cd maze-solve
 
-# Do a git-fetch
-$ git fetch
-
-# Check out the master branch
-$ git checkout master 
+# Run maze-solver
+python3 main.py
 ```
 # Stability 
 I plan to update this code as much as possible. Coming extensions to the project may include implementation of different algorithms such as A*, Djikstra, and genetic algorithms. The maze could also be extended into three dimensions, as well as having a separate gui to display how each algorithm behaves. 
