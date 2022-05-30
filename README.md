@@ -1,8 +1,8 @@
 # maze-solve
-Implementation of Depth-First Search to find first available path through a randomly generated maze of m x n cells. 
+Implementation of Depth-First Search to find first available path through a randomly generated maze array of cells. 
 
 # Goals
-The goal of this project is to solve any number of complex mazes in an optimum time frame and an optimum number of moves. Maze-Solve creates a blank window gui using the built-in python module tkinter, and begins drawing cells in a row-column fashion. Once the results of the maze is printed, it implements the depth-first search algorithm alongside the draw function and draws a line into its chosen path. The function will backtrack with a different line to show you how depth-first search behaves under these conditions. 
+The goal of this project is to utilize depth first search to olve any number of complex mazes. Maze-Solve creates a blank window gui using the built-in python module tkinter, and begins drawing cells in a row-column fashion. Once the results of the maze is printed, it implements the depth-first search algorithm alongside the draw function and draws a line into its chosen path. The function will backtrack with a different line to show you how depth-first search behaves under these conditions. 
 
 # Installation
 Firstly, make sure you have python and git installed on your local machine. I did everything in VSCode, so make sure where you install the repository is under your current workspace path. Go to your workspace path and do the following.
