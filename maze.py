@@ -58,14 +58,12 @@ class Maze:
         time.sleep(0.05)
     
     def _break_entrance_and_exit(self):
-        if self._win is None:
-            return
         self._cells[0][0].has_top = False
         self._draw_cell(0,0)
         self._cells[self._num_cols - 1][self._num_rows - 1].has_bottom = False
         self._draw_cell(self._num_cols - 1, self._num_rows - 1)
 
-    def break_walls_all(self,i, j, seed=None):
+    def _break_walls_all(self,i, j):
         
         self._cells[i][j].visited = True
         while True:
