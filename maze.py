@@ -12,6 +12,7 @@ class Maze:
         cell_size_x,
         cell_size_y,
         win=None,
+        seed=None,
     ):
         self._cells = []
         self._x1 = x1
@@ -21,8 +22,13 @@ class Maze:
         self._cell_size_x = cell_size_x
         self._cell_size_y = cell_size_y
         self._win = win
+        if seed:
+            random.seed(seed)
 
         self._creates_cells()
+        self._break_entrance_and_exit()
+        self._break_walls_all(0,0)
+        self._reset_cells_visited()
 
     def _creates_cells(self):
         
@@ -48,7 +54,7 @@ class Maze:
     def _animate(self):
         if self._win is None:
             return
-        self._win.redraw
+        self._win.redraw()
         time.sleep(0.05)
     
     def _break_entrance_and_exit(self):
@@ -60,9 +66,7 @@ class Maze:
         self._draw_cell(self._num_cols - 1, self._num_rows - 1)
 
     def break_walls_all(self,i, j, seed=None):
-        seed=random.seed()
-        if seed is not None:
-            random.seed(seed)
+        
         self._cells[i][j].visited = True
         while True:
             next_index_list = []
@@ -73,7 +77,7 @@ class Maze:
                 direction_idx +=1
 
             if i < self._num_cols - 1 and not self._cells[i + 1][j].visited:
-                next_index_list.append((i, j - 1))
+                next_index_list.append((i+1, j))
                 direction_idx +=1
 
             if j > 0 and not self._cells[i][j - 1].visited:
