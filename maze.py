@@ -68,6 +68,7 @@ class Maze:
         self._cells[i][j].visited = True
         while True:
             next_index_list = []
+            print()
 
             direction_idx = 0
             if i > 0 and not self._cells[i-1][j].visited:
@@ -97,19 +98,19 @@ class Maze:
                 self._cells[i][j].has_adjacent_right = False
                 self._cells[i + 1][j].has_adjacent_left = False
 
-                if next_index[0] == i - 1:
-                    self._cells[i][j].has_adjacent_left = False
-                    self._cells[i - 1][j].has_adjacent_right = False
+            if next_index[0] == i - 1:
+                self._cells[i][j].has_adjacent_left = False
+                self._cells[i - 1][j].has_adjacent_right = False
                 
-                if next_index[1] == j + 1:
-                    self._cells[i][j].has_bottom = False
-                    self._cells[i][j + 1].has_top = False
+            if next_index[1] == j + 1:
+                self._cells[i][j].has_bottom = False
+                self._cells[i][j + 1].has_top = False
 
-                if next_index[1] == j - 1:
-                    self._cells[i][j].has_top = False
-                    self._cells[i][j - 1].has_bottom = False
+            if next_index[1] == j - 1:
+                self._cells[i][j].has_top = False
+                self._cells[i][j - 1].has_bottom = False
 
-                self._break_walls_all(next_index[0], next_index[1])
+            self._break_walls_all(next_index[0], next_index[1])
 
 
     def _reset_cells_visited(self):

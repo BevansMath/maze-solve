@@ -2,7 +2,8 @@ from windows import Window
 from cell import Cell
 from maze import Maze
 import sys
-
+# Really hard to debug program that does something different everytime
+# Add seed
 
 def main():
     screen_x = 800
@@ -21,7 +22,8 @@ def main():
 
     sys.setrecursionlimit(10000)
 
-    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win, 10000)
+    
     print("maze created")
     is_solveable = maze.solve()
     if not is_solveable:
