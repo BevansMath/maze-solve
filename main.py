@@ -2,19 +2,18 @@ from windows import Window
 from cell import Cell
 from maze import Maze
 import sys
-# Really hard to debug program that does something different everytime
-# Add seed
 
-def main():
+
+def main():         # Create the window screen 
     screen_x = 800
     screen_y = 600
     win = Window(screen_x, screen_y)
 
-    num_rows = 12
+    num_rows = 12  # Define the number of rows and columns to create the grid
     num_cols = 16
     margin = 50
 
-
+                   # Define cell size as screen size coordinates * margins divided by the rows and colums
     cell_size_x = (screen_x - 2 * margin)/ num_cols
     cell_size_y = (screen_y - 2 * margin) / num_rows
   
