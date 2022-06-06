@@ -9,7 +9,7 @@ class Test:
         m1 = Maze(0,0, num_rows, num_cols, 10, 10)
         self.assertEqual(
             len(m1._cells),
-            num_cols,
+           num_cols,
         )
         self.assertEqual(
             len(m1._cells[0]),
@@ -20,12 +20,12 @@ class Test:
         num_rows = 10
         m2 = Maze(0,0, num_rows, num_cols, 10, 10)
         self.assertEqual(
-            len(m2._cells[0][0].has_top),
+            m2._cells[0][0].has_top,
             False,
-        )
+           )
         self.assertEqual(
-            len(m2._cells[self._num_rows - 1][self._num_cols - 1].has_bottom,
-            False,)
+            m2._cells[num_rows - 1][num_cols - 1].has_bottom,
+            False,
         )
     
 
@@ -37,7 +37,7 @@ class Test:
             for cell in col:
                 self.assertEqual(
                     cell.visited,
-                    False,
+                    False, 
                     
                 )
 if __name__ == "__main__": # Driver function to test main script
