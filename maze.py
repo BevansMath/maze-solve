@@ -68,7 +68,7 @@ class Maze:
         self._cells[i][j].visited = True
         while True:
             next_index_list = []
-            print()
+            
 
             direction_idx = 0
             if i > 0 and not self._cells[i-1][j].visited:
