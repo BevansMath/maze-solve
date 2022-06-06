@@ -68,7 +68,11 @@ class Maze:
         while True:
             next_index_list = []
             
+<<<<<<< HEAD
             # Randomize which way to break the walls
+=======
+
+>>>>>>> 382868747241da1cd1485b53cd89fb09d095e2fb
             direction_idx = 0
             if i > 0 and not self._cells[i-1][j].visited:
                 next_index_list.append((i-1, j))
