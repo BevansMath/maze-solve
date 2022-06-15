@@ -1,11 +1,12 @@
 # Maze Solver
-Implementation of Breadth-First search and Depth-First search to find first available path through a randomly generated maze array of cells. 
 
-# Maze Gif
 ![](https://github.com/BevansMath/maze-solve/blob/main/Maze-gif2.gif)
 
 # Goals
-The goal of this project is to utilize depth first search to olve any number of complex mazes. Maze-Solve creates a blank window gui using the built-in python module tkinter, and begins drawing cells in a row-column fashion. Once the results of the maze is printed, it implements the depth-first search algorithm alongside the draw function and draws a line into its chosen path. The function will backtrack with a different line to show you how depth-first search behaves under these conditions. 
+The goal of this project is to utilize depth first search to solve any number of complex mazes. Maze-Solve creates a blank window gui using the built-in python module tkinter, and begins drawing cells in a row-column fashion. Once the results of the maze is printed, it implements the depth-first search algorithm alongside the draw function and draws a line into its chosen path. The function will backtrack with a different line to show you how depth-first search behaves under these conditions. 
+
+# Motivation
+This project was built as part of the python course on boot.dev. I chose to build this program to see how Breadth-First search and Depth-First search perform. I wish to see how these algorithms will compare with others in terms of time-complexity and efficiency. 
 
 # Installation
 Firstly, make sure you have python and git installed on your local machine. I did everything in VSCode, so make sure where you install the repository is under your current workspace path. Go to your workspace path and do the following.
