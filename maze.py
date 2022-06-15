@@ -69,9 +69,6 @@ class Maze:
         
 
     def _break_walls_all(self,i, j, seed=None):
-        seed = random.seed()
-        if seed is not None:
-            random.seed(seed)
 
         self._cells[i][j].visited = True
         while True:
@@ -104,8 +101,6 @@ class Maze:
                 self._draw_cell(i,j)
             
                 return
-            #print(next_index_list) note that this returned [(1,0),(0,1)]
-            #breakpoint()
             
             direction_idx= random.randrange(potential_directions_idx)
            
