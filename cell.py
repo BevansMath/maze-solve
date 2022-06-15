@@ -28,12 +28,14 @@ class Cell:
         else:
             line = Line(Point(x1,y1), Point(x1,y2))
             self._win.draw_line(line, "white")
+
         if self.has_adjacent_right: # Coordinates for right wall
             line = Line(Point(x2, y1), Point(x2, y2))
             self._win.draw_line(line)
         else:
             line = Line(Point(x2,y1), Point(x2, y2))
             self._win.draw_line(line, "white")
+
         if self.has_top:            # Coordinates for top wall
             line = Line(Point(x1, y1), Point(x2, y1))
             self._win.draw_line(line)

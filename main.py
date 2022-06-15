@@ -1,5 +1,4 @@
 from windows import Window
-from cell import Cell
 from maze import Maze
 import sys
 
@@ -18,10 +17,10 @@ def main():         # Create the window screen
     cell_size_y = (screen_y - 2 * margin) / num_rows
   
 
+    # The recursion limit call must be changed to have different mazes.
+    sys.setrecursionlimit(100000)
 
-    sys.setrecursionlimit(10000)
-
-    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win, 10000)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win, 1000)
     
     print("maze created")
     is_solveable = maze.solve()

@@ -24,6 +24,7 @@ class Maze:
         self._win = win
         if seed:
             random.seed(seed)
+        
 
         self._creates_cells()
         self._break_entrance_and_exit()
@@ -38,7 +39,9 @@ class Maze:
             self._cells.append(col_cells)
         for i in range(self._num_cols):
             for j in range(self._num_rows):
-                self._draw_cell(i,j)                   
+                self._draw_cell(i,j)     
+                
+
 
     def _draw_cell(self, i, j):
         if self._win is None:
@@ -49,6 +52,8 @@ class Maze:
         y2 = y1 + self._cell_size_y
         self._cells[i][j].draw(x1,y1,x2,y2)
         self._animate()
+        
+        
 
     def _animate(self):
         if self._win is None:
@@ -56,58 +61,70 @@ class Maze:
         self._win.redraw()
         time.sleep(0.05)
     
-    def _break_entrance_and_exit(self):
+    def _break_entrance_and_exit(self): # !! breakpoints not working here
         self._cells[0][0].has_top = False
         self._draw_cell(0,0)
         self._cells[self._num_cols - 1][self._num_rows - 1].has_bottom = False
         self._draw_cell(self._num_cols - 1, self._num_rows - 1)
-
-    def _break_walls_all(self,i, j):
         
+
+    def _break_walls_all(self,i, j, seed=None):
+        seed = random.seed()
+        if seed is not None:
+            random.seed(seed)
+
         self._cells[i][j].visited = True
         while True:
-            next_index_list = []
-            
+            next_index_list = []     
 
-            # Randomize which way to break the walls
-
-
-            direction_idx = 0
+            potential_directions_idx= 0
+            # determine which cells to visit
+            # visiting the left
             if i > 0 and not self._cells[i-1][j].visited:
                 next_index_list.append((i-1, j))
-                direction_idx +=1
-
+                potential_directions_idx +=1
+            
+            # right
             if i < self._num_cols - 1 and not self._cells[i + 1][j].visited:
                 next_index_list.append((i+1, j))
-                direction_idx +=1
-
+                potential_directions_idx +=1
+            
+            # Move Up 
             if j > 0 and not self._cells[i][j - 1].visited:
                 next_index_list.append((i, j - 1))
-                direction_idx += 1
+                potential_directions_idx += 1
             
+            # Move Down
             if j < self._num_rows - 1 and not self._cells[i][j + 1].visited:
                 next_index_list.append((i, j + 1))
-                direction_idx += 1
-
-            if direction_idx == 0:
-                self._draw_cell(i,j)
-                return
+                potential_directions_idx+= 1
             
-            direction_idx2 = random.randrange(direction_idx)
-            next_index = next_index_list[direction_idx2]
-
+            # Nowhere to move so we break from the statement
+            if potential_directions_idx == 0:
+                self._draw_cell(i,j)
+            
+                return
+            #print(next_index_list) note that this returned [(1,0),(0,1)]
+            #breakpoint()
+            
+            direction_idx= random.randrange(potential_directions_idx)
+           
+            next_index = next_index_list[direction_idx]
+            
+            # Next, delete the walls between this cell and the neighboring cells
+            # Right wall
             if next_index[0] == i + 1:
                 self._cells[i][j].has_adjacent_right = False
                 self._cells[i + 1][j].has_adjacent_left = False
-
+            # Left wall
             if next_index[0] == i - 1:
                 self._cells[i][j].has_adjacent_left = False
                 self._cells[i - 1][j].has_adjacent_right = False
-                
+            # Ceiling   
             if next_index[1] == j + 1:
                 self._cells[i][j].has_bottom = False
                 self._cells[i][j + 1].has_top = False
-
+            # Floor
             if next_index[1] == j - 1:
                 self._cells[i][j].has_top = False
                 self._cells[i][j - 1].has_bottom = False
@@ -158,14 +175,18 @@ class Maze:
         # Otherwise, move up if there is no wall and cell has not been visited        
         if ( j > 0
         and not self._cells[i][j].has_top 
-        and not self._cells[i][j - 1]):
+        and not self._cells[i][j-1].visited):
             self._cells[i][j].draw_move(self._cells[i][j - 1])
             if self._solve_r(i, j - 1):
                 return True
             else:
                 self._cells[i][j].draw_move(self._cells[i][j-1], True)
 
-        if (j < self._num_rows - 1 and not self._cells[i][j].has_bottom and not self._cells[i][j + 1].visited):
+        # Otherwise, move down if there is no wall and cell has not been visited
+        if (j < self._num_rows - 1
+        and not self._cells[i][j].has_bottom 
+        and not self._cells[i][j + 1].visited
+        ):
             self._cells[i][j].draw_move(self._cells[i][j + 1])
             if self._solve_r(i, j + 1):
                 return True
