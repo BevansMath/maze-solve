@@ -52,7 +52,7 @@ class Cell:
     def draw_move(self, to_cell, undo=False): # Draw all the moves
         if self._win is None:
             return
-        mid_x = (self._x1 + self._y2) / 2     # Described as the middle of the cells
+        mid_x = (self._x1 + self._x2) / 2     # Described as the middle of the cells
         mid_y = (self._y1 + self._y2) / 2
 
         to_mid_x = (to_cell._x1 + to_cell._x2) / 2
