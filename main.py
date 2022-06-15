@@ -8,8 +8,8 @@ def main():         # Create the window screen
     screen_y = 600
     win = Window(screen_x, screen_y)
 
-    num_rows = 12  # Define the number of rows and columns to create the grid
-    num_cols = 16
+    num_rows = 24 # Define the number of rows and columns to create the grid
+    num_cols = 32
     margin = 50
 
                    # Define cell size as screen size coordinates * margins divided by the rows and colums
@@ -17,10 +17,9 @@ def main():         # Create the window screen
     cell_size_y = (screen_y - 2 * margin) / num_rows
   
 
-    # The recursion limit call must be changed to have different mazes.
     sys.setrecursionlimit(100000)
 
-    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win, 1000)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win)
     
     print("maze created")
     is_solveable = maze.solve()

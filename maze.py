@@ -68,7 +68,8 @@ class Maze:
         self._draw_cell(self._num_cols - 1, self._num_rows - 1)
         
 
-    def _break_walls_all(self,i, j, seed=None):
+    def _break_walls_all(self, i, j):
+        
 
         self._cells[i][j].visited = True
         while True:
@@ -101,6 +102,7 @@ class Maze:
                 self._draw_cell(i,j)
             
                 return
+            
             
             direction_idx= random.randrange(potential_directions_idx)
            
