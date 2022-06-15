@@ -1,5 +1,8 @@
-# maze-solve
-Implementation of Depth-First Search to find first available path through a randomly generated maze array of cells. 
+# Maze Solver
+Implementation of Breadth-First search and Depth-First search to find first available path through a randomly generated maze array of cells. 
+
+# Maze Gif
+![](https://github.com/BevansMath/maze-solve/blob/main/Maze-gif2.gif)
 
 # Goals
 The goal of this project is to utilize depth first search to olve any number of complex mazes. Maze-Solve creates a blank window gui using the built-in python module tkinter, and begins drawing cells in a row-column fashion. Once the results of the maze is printed, it implements the depth-first search algorithm alongside the draw function and draws a line into its chosen path. The function will backtrack with a different line to show you how depth-first search behaves under these conditions. 
